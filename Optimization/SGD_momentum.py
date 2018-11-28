@@ -29,8 +29,9 @@ def sgd():
         # 迭代停止
         if abs(error) <= threshold:
             break
-        
-        gradient = momentum * gradient + alpha * (x[j] * (np.dot(x[j], theta) - y[j]))
+
+        gradient = momentum * gradient + alpha * (x[j] *
+                                                  (np.dot(x[j], theta) - y[j]))
         theta -= gradient
 
     print('迭代次数：%d' % (i + 1), 'theta：', theta, 'error：%f' % error)

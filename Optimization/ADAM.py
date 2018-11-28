@@ -1,3 +1,5 @@
+# ADAM
+# 以 y=x1+2*x2为例
 import math
 import numpy as np
 
