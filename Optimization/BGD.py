@@ -27,6 +27,7 @@ def bgd_single():
         # 迭代停止
         if abs(error) <= threshold:
             break
+
         theta -= alpha / m * (np.dot(x.T, (theta * x - y)))
 
     print('单变量：', '迭代次数： %d' % (i + 1), 'theta： %f' % theta,
@@ -34,7 +35,7 @@ def bgd_single():
 
 
 # 2、多元数据程序
-# 以 y=x+2*x为例，所以正确的结果应该趋近于theta = [1，2]
+# 以 y=x1+2*x2为例，所以正确的结果应该趋近于theta = [1，2]
 
 
 def bgd_multi():
@@ -58,6 +59,7 @@ def bgd_multi():
         # 迭代停止
         if abs(error) <= threshold:
             break
+
         theta -= alpha / m * (np.dot(x.T, (np.dot(x, theta) - y)))
 
     print('多元变量：', '迭代次数：%d' % (i + 1), 'theta：', theta, 'error：%f' % error)
