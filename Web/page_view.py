@@ -5,7 +5,12 @@
 import urllib.request
 import time
 
-url = ['https://www.toutiao.com/i6621488389680005636/']
+url = ['https://blog.csdn.net/yzy_1996/article/details/82916940',
+        'https://blog.csdn.net/yzy_1996/article/details/84482107',
+        'https://blog.csdn.net/yzy_1996/article/details/84618536',
+        'https://blog.csdn.net/yzy_1996/article/details/83756198',
+        'https://blog.csdn.net/yzy_1996/article/details/80223053',
+        'https://blog.csdn.net/yzy_1996/article/details/83756357']
 
 countUrl = len(url)
 count = 0
@@ -23,7 +28,7 @@ while True:
             for i in range(countUrl):  # 遍历所有url
                 req = urllib.request.Request(url[i] ,headers=headers)
                 urllib.request.urlopen(req)  # 访问网页
-            # time.sleep(1)  # 间隔执行
+            time.sleep(70)  # 间隔执行
 
         except urllib.error.HTTPError:  # 服务器异常
             print('HTTPError')
