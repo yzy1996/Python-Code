@@ -4,13 +4,14 @@
 
 import urllib.request
 import time
-
+'nid%22%'
 url = ['https://blog.csdn.net/yzy_1996/article/details/82916940',
         'https://blog.csdn.net/yzy_1996/article/details/84482107',
         'https://blog.csdn.net/yzy_1996/article/details/84618536',
         'https://blog.csdn.net/yzy_1996/article/details/83756198',
         'https://blog.csdn.net/yzy_1996/article/details/80223053',
-        'https://blog.csdn.net/yzy_1996/article/details/83756357']
+        'https://blog.csdn.net/yzy_1996/article/details/83756357',
+        'https://blog.csdn.net/yzy_1996/article/details/81951189',]
 
 countUrl = len(url)
 count = 0

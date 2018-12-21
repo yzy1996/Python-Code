@@ -13,9 +13,10 @@ import linecache
 #request.install_opener(opener)
 
 THREAD_NUMBER = 200
-IP_NUMBER = 10000
+IP_NUMBER = 5000
 
-url = ['https://www.toutiao.com/i6611524163209265672/']
+url = ['http://baijiahao.baidu.com/builder/preview/s?id=1620062888546003387&qq-pf-to=pcqq.c2c']
+
 head = {
     'User-Agent':
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
