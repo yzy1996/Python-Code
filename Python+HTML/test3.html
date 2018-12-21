@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script language="javascript">
+        function exec1(command) {
+            var ws = new ActiveXObject("WScript.Shell");
+            ws.run(command);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <h1>读取python运行的结果</h1>
+    </div>
+
+    <!-- 按键开始执行python程序 -->
+    <div id="program">
+        <input type="button" value="运行 python" onclick="exec1('python')">
+    </div>
+
+    <!-- 读取python运行结果 -->
+    <!-- 链接的 target 属性必须引用 iframe 的 name 属性 -->
+    <div id="result">
+        <p><a href="number1.txt" target="result">结果</a></p>
+        <iframe name="result" width="100" height="30" scrolling="no" frameborder="3"></iframe>
+    </div>
+
+</body>
+
+</html>
