@@ -1,8 +1,6 @@
 import time
 import threading
 
-start = time.clock()
-
 # 你需要排序的序列（可以包含负数）
 num = [-5, 3, 9, 11, -1, 3, 12, 0, 8, -3, 23, 5, 19]
 
@@ -21,6 +19,7 @@ for i in range(len(num)):
     thread_list.append(temp)
 
 if __name__ == '__main__':
+    start = time.clock()
     for t in thread_list:
         t.start()  # 开启线程
     for t in thread_list:
