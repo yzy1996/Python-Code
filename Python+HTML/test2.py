@@ -1,10 +1,4 @@
-# 示例代码：生成一个随机数并写入（每次重写）txt
-
-import random
+import os
  
-number = random.randint(1,10)
-print(number)
-
-f = open('number.txt','w')
-f.write(str(number))
-f.close()
+file = open('new_file' + '.txt','w')
+file.close()
