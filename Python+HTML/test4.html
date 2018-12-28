@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script language="javascript">
+        function exec1(command) {
+            var ws = new ActiveXObject("WScript.Shell");
+            ws.run(command);
+        }
+
+        function input() {
+            text = document.getElementById("data").value;  //获得网页文本框的值
+            var strFile = "input.txt";	//定义文件保存的路径
+            var objFSO = new ActiveXObject("Scripting.FileSystemObject");
+            var objStream = objFSO.CreateTextFile(strFile, true);
+            objStream.Write(text);  //写值
+            objStream.Close();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <h1>对输入值进行平方计算</h1>
+    </div>
+
+    <!-- 在文本框内输入一个数字，点击输入完毕按钮，将在本地生成一个input.txt，内容为输入的数字 -->
+    <div id="input">
+        <input id="data" type="text" value="22" />
+        <p></p>
+        <input type="button" value="输入完毕" onclick="input()" />
+    </div>
+    <p></p>
+    <!-- 点击运行Python按钮，将本地执行test4.py程序 -->
+    <div id="program">
+        <input type="button" value="运行程序" onclick="exec1('pythonw test4.py')">
+    </div>
+
+    <!-- 点击结果, 将在框内显示出计算的结果-->
+    <div id="result">	
+        <p><a href="result.txt" target="result">显示结果</a></p>
+        <iframe name="result" width="100" height="30" scrolling="no" frameborder="3"></iframe>	
+    </div>
+
+    <p></p>
+    <div id="result">
+        使用说明：文本框输入一个数字，然后依次点击 [输入完毕] [运行python] [显示结果]
+    </div>
+</body>
+
+</html>
