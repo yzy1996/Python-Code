@@ -1,4 +1,6 @@
+# 读取txt文件有多少行
+
 # -*- coding: gbk -*- 
 with open(r'C:\Users\Jerry\Desktop\语音识别\数据集\0_0.txt', 'rt') as f:
     count=len(f.readlines())
-    print(count)
+    print("数据有%d行" %(count))

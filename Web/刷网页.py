@@ -12,10 +12,10 @@ import linecache
 #opener = request.build_opener(request.HTTPCookieProcessor(cj), request.HTTPHandler)
 #request.install_opener(opener)
 
-THREAD_NUMBER = 200
-IP_NUMBER = 5000
+THREAD_NUMBER = 2
+IP_NUMBER = 20
 
-url = ['http://baijiahao.baidu.com/builder/preview/s?id=1620062888546003387&qq-pf-to=pcqq.c2c']
+url = ['http://yun.zjer.cn/index.php?r=space/person/show&sid=NID555912']
 
 head = {
     'User-Agent':
@@ -46,8 +46,8 @@ def brash(proxy_dict):
                 try:
                     #lock.acquire()
                     response = request.urlopen(req)  #访问网页
-                    #html = response.read().decode('utf-8')
-                    #print(html)
+                    html = response.read().decode('utf-8')
+                    print(html)
                     #lock.release()
                 except urllib.error.URLError as e:
                     print(e.reason)
