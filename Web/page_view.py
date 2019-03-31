@@ -5,18 +5,15 @@
 import urllib.request
 import time
 
-url = ['https://blog.csdn.net/yzy_1996/article/details/80223053',
-       'https://blog.csdn.net/yzy_1996/article/details/82916940',
-       'https://blog.csdn.net/yzy_1996/article/details/80223053',
+url = [
        'https://blog.csdn.net/yzy_1996/article/details/85244714',
        'https://blog.csdn.net/yzy_1996/article/details/84618536',
        'https://blog.csdn.net/yzy_1996/article/details/85318705',
        'https://blog.csdn.net/yzy_1996/article/details/86992770',
-       'https://blog.csdn.net/yzy_1996/article/details/81951189',
        'https://blog.csdn.net/yzy_1996/article/details/87917772',
        'https://blog.csdn.net/yzy_1996/article/details/85318179',
-       'https://blog.csdn.net/yzy_1996/article/details/82945869',
        'https://blog.csdn.net/yzy_1996/article/details/88383365',
+       'https://blog.csdn.net/yzy_1996/article/details/88896320'
        ]
 
 countUrl = len(url)

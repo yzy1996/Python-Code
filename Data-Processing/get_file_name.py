@@ -2,6 +2,6 @@
 
 import os
 
-path = r'car.txt'
+path = r'demo.txt'
 name = os.path.splitext(os.path.basename(path))[0]  
 print(name)
