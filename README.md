@@ -1,19 +1,26 @@
 # Python-Code
 
-一些杂七杂八的小程序，小脚本
+[![python-version](https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg)](https://www.python.org/)
 
-1、刷网页浏览量
-[CSDN说明](https://blog.csdn.net/yzy_1996/article/details/81951189)
-[Github](https://github.com/yzy1996/Python-Code/tree/master/Web)
+**Algorithm** including 
 
-2、读取行数
-[Github代码](https://github.com/yzy1996/Python-Random/blob/master/readline.py)
+- Geometric
+- Least Squares
+- Optimization algorithm
+- sorting algorithm
 
-3、一个生成金字塔的代码，根据你输入的层数显示出来
-[Github代码](https://github.com/yzy1996/Python-Random/blob/master/pyramid.py)
 
-4、一个简单的神经网络
-[Github代码](https://github.com/yzy1996/Python-Random/blob/master/neural_net.py)
 
-5、CSV读取相关
-[Github代码](https://github.com/yzy1996/Python-Random/blob/master/csv_write.py)
+**Data Processing** including
+
+for csv|docx|txt
+
+
+
+**Python+HTML** 
+
+A tutorial for using html to show python console, very nice!
+
+
+
+Others I think are not worth mentioning, hope you can find what you want.
