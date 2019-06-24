@@ -1,5 +1,10 @@
-# ¶ÁÈ¡txtÎÄ¼şÓĞ¶àÉÙĞĞ
-
+# è¾“å‡ºtxtæœ‰å¤šå°‘è¡Œ
+# ä½¿ç”¨with opençš„å¥½å¤„æ˜¯ï¼š
 with open(r'demo.txt', 'rt') as f:
     count=len(f.readlines())
-    print("Êı¾İÓĞ%dĞĞ" %(count))
+    print(count)
+
+
+# f = open(r'somefile.txt', 'rt')
+# data = f.read()
+# f.close()

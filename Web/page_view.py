@@ -5,33 +5,44 @@
 import urllib.request
 import time
 
-url = [
-       'https://blog.csdn.net/yzy_1996/article/details/85244714',
-       'https://blog.csdn.net/yzy_1996/article/details/84618536',
-       'https://blog.csdn.net/yzy_1996/article/details/85318705',
-       'https://blog.csdn.net/yzy_1996/article/details/86992770',
-       'https://blog.csdn.net/yzy_1996/article/details/87917772',
+url = ['https://blog.csdn.net/yzy_1996/article/details/85318705',
        'https://blog.csdn.net/yzy_1996/article/details/85318179',
        'https://blog.csdn.net/yzy_1996/article/details/88383365',
-       'https://blog.csdn.net/yzy_1996/article/details/88896320'
+       'https://crazyang.blog.csdn.net/article/details/89139203',
+       'https://blog.csdn.net/yzy_1996/article/details/89351413',
+       'https://blog.csdn.net/yzy_1996/article/details/89308517',
+       'https://blog.csdn.net/yzy_1996/article/details/89139203',
+       'https://crazyang.blog.csdn.net/article/details/89321214',
+       'https://blog.csdn.net/yzy_1996/article/details/89452063',
+       'https://crazyang.blog.csdn.net/article/details/89556049',
+       'https://crazyang.blog.csdn.net/article/details/89527834',
+       'https://crazyang.blog.csdn.net/article/details/89452063',
+       'https://blog.csdn.net/yzy_1996/article/details/89519702',
+       'https://crazyang.blog.csdn.net/article/details/83756357',
+       'https://blog.csdn.net/yzy_1996/article/details/89815633',
+       'https://blog.csdn.net/yzy_1996/article/details/89738312',
+       'https://blog.csdn.net/yzy_1996/article/details/89815744',
+       'https://blog.csdn.net/yzy_1996/article/details/89818995'
        ]
 
 countUrl = len(url)
 count = 0
 count1 = 0
 
+
 # 加入请求头
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'}
 
 # 让程序一直执行
 while True:  
     if count1 < 1000:
-        try:  # 正常运行
-            count = count + 1
-            print(count, 'times')  # 监视程序是否在正常运行，输出运行了多少次         
+        try:  # 正常运行       
             for i in range(countUrl):  # 遍历所有url
                 req = urllib.request.Request(url[i] ,headers=headers)
-                urllib.request.urlopen(req)  # 访问网页
+                response = urllib.request.urlopen(req)  # 访问网页
+                if response.getcode()==200:
+                    count = count + 1
+                    print('Success ' + str(count), 'times')  # 监视程序是否在正常运行，输出运行了多少次 
             time.sleep(70)  # 间隔执行
 
         except urllib.error.HTTPError:  # 服务器异常
