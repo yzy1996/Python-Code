@@ -1,6 +1,6 @@
 # Python-Code
 
-![python-version](https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg)
+![python-version](https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg)![stars](https://img.shields.io/github/stars/yzy1996/Python-Code?style=social)
 
 **Algorithm** including 
 
