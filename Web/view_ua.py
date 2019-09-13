@@ -20,7 +20,8 @@ url = ['https://crazyang.blog.csdn.net/article/details/97399885',
        'https://blog.csdn.net/yzy_1996/article/details/82223241',
        'https://blog.csdn.net/yzy_1996/article/details/81909444',
        'https://blog.csdn.net/yzy_1996/article/details/81230126',
-       'https://blog.csdn.net/yzy_1996/article/details/81230104',     
+       'https://blog.csdn.net/yzy_1996/article/details/81230104',
+       'https://blog.csdn.net/yzy_1996/article/details/100540556'     
        ]
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'}   
