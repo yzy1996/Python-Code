@@ -41,4 +41,4 @@ while count < 10000:
 
     except Exception:  # 异常
         print('Failed and Retry')
-        time.sleep(60)
+        time.sleep(1)
