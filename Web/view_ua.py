@@ -21,7 +21,11 @@ url = ['https://crazyang.blog.csdn.net/article/details/97399885',
        'https://blog.csdn.net/yzy_1996/article/details/81909444',
        'https://blog.csdn.net/yzy_1996/article/details/81230126',
        'https://blog.csdn.net/yzy_1996/article/details/81230104',
+<<<<<<< HEAD
+       'https://blog.csdn.net/yzy_1996/article/details/100540556'     
+=======
        'https://blog.csdn.net/yzy_1996/article/details/100540556'  
+>>>>>>> 2013215d2b186fb9af52ffe31a7701372d4f77a4
        ]
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}   
