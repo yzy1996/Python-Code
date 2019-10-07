@@ -5,30 +5,11 @@
 import requests
 import time
 
-url = ['https://crazyang.blog.csdn.net/article/details/97399885',
-       'https://blog.csdn.net/yzy_1996/article/details/96448348',
-       'https://blog.csdn.net/yzy_1996/article/details/90201584',
-       'https://blog.csdn.net/yzy_1996/article/details/89818995',
-       'https://blog.csdn.net/yzy_1996/article/details/89815744',
-       'https://blog.csdn.net/yzy_1996/article/details/89815633',
-       'https://blog.csdn.net/yzy_1996/article/details/89738312',
-       'https://blog.csdn.net/yzy_1996/article/details/89482718',
-       'https://crazyang.blog.csdn.net/article/details/87918378',
-       'https://blog.csdn.net/yzy_1996/article/details/84504723',
-       'https://blog.csdn.net/yzy_1996/article/details/83756198',
-       'https://blog.csdn.net/yzy_1996/article/details/82945869',
-       'https://blog.csdn.net/yzy_1996/article/details/82223241',
-       'https://blog.csdn.net/yzy_1996/article/details/81909444',
-       'https://blog.csdn.net/yzy_1996/article/details/81230126',
-       'https://blog.csdn.net/yzy_1996/article/details/81230104',
-<<<<<<< HEAD
-       'https://blog.csdn.net/yzy_1996/article/details/100540556'     
-=======
-       'https://blog.csdn.net/yzy_1996/article/details/100540556'  
->>>>>>> 2013215d2b186fb9af52ffe31a7701372d4f77a4
+url = ['https://blog.csdn.net/yzy_1996/article/details/100540556',
+       'https://blog.csdn.net/yzy_1996/article/details/101563858'  
        ]
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}   
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}   
  
 count = 0
 countUrl = len(url) 
@@ -39,9 +20,10 @@ while count < 10000:
         for i in range(countUrl):
             response = requests.get(url[i], headers=headers)
             if response.status_code == 200:
+                print(response.text)
                 count = count + 1
                 print('Success ' + str(count), 'times')
-        time.sleep(70)
+        time.sleep(100)
 
     except Exception:  # 异常
         print('Failed and Retry')
