@@ -5,11 +5,10 @@
 import requests
 import time
 
-url = ['https://blog.csdn.net/yzy_1996/article/details/100540556',
-       'https://blog.csdn.net/yzy_1996/article/details/101563858'  
-       ]
+url = ['https://blog.csdn.net/yzy_1996/article/details/101563858',
+       'https://blog.csdn.net/yzy_1996/article/details/102665398']
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}   
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'}   
  
 count = 0
 countUrl = len(url) 
@@ -20,7 +19,6 @@ while count < 10000:
         for i in range(countUrl):
             response = requests.get(url[i], headers=headers)
             if response.status_code == 200:
-                print(response.text)
                 count = count + 1
                 print('Success ' + str(count), 'times')
         time.sleep(100)
