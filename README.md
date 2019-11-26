@@ -3,7 +3,7 @@
 
 ![python-version](https://img.shields.io/badge/python-3.7-blue) ![Country](https://img.shields.io/badge/country-China-red) ![stars](https://img.shields.io/github/stars/yzy1996/Python-Code?style=social)
 
-
+</div>
 **Algorithm** including 
 
 - Geometric
