@@ -1,6 +1,8 @@
 # Search Algorithm
 
-problem 1: fig 1
+problem 1:
+
+ ![img](./fig1.png)
 
 problem 2: fig 2
 
