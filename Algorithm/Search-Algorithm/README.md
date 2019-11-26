@@ -40,7 +40,9 @@ BFS DFS
 
 
 
- ![img](/fig1.png) 
+ ![img](https://github.com/yzy1996/Python-Code/blob/master/Algorithm/Search-Algorithm/fig1.png) 
+
+
 
 深度优先遍历顺序为：1->2->4->8->5->3->6->7
 
