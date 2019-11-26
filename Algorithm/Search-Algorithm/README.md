@@ -40,7 +40,7 @@ BFS DFS
 
 
 
- ![img](https://github.com/yzy1996/Python-Code/blob/master/Algorithm/Search-Algorithm/fig1.png) 
+ ![img](./fig1.png) 
 
 
 
