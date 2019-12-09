@@ -34,7 +34,7 @@ with open('example.txt') as f:
 
 
 
-### Useful
+### Something Useful
 
 1. `str.split(str="", num=string.count(str)) ` 
 
