@@ -29,3 +29,24 @@ A tutorial for using html to show python console, very nice!
 
 
 Others I think are not worth mentioning, hope you can find what you want.
+
+
+
+
+
+
+
+Transform:
+
+```python
+# Flip up and down
+x = x[::-1]
+
+# Flip right and left
+x = x[:,::-1]
+
+# Rotate
+x = np.rot90(x, 1)
+
+```
+
