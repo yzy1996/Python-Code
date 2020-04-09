@@ -58,7 +58,7 @@ def writeFile(file, content):
     f.close()
 
 
-with open(r'C:/Users/Jerry/Desktop/111.txt', 'rt') as f:
+with open(r'text.txt', 'rt') as f:
     lines = (line.strip() for line in f)
     for line in lines:
 
@@ -70,3 +70,6 @@ with open(r'C:/Users/Jerry/Desktop/111.txt', 'rt') as f:
             if AUE == "raw":
         #   合成音频格式为pcm、wav并保存在audio目录下
                 writeFile("C:/Users/Jerry/Desktop/audio/" + line + ".wav", r.content)
+
+
+ffmpeg -y -f s16le -ar 11025 -i demo.pcm demo.wav
