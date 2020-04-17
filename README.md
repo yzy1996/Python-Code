@@ -9,7 +9,7 @@
 
 The standard of using python! Make python code more pythonic!
 
-## Algorithm
+## [Algorithm](./Algorithm)
 including：
 
 - Geometric
@@ -18,7 +18,7 @@ including：
 - sorting algorithm
 
 
-## Data Processing
+## [Data Processing](./Data-Processing)
 including：
 
 - csv
@@ -27,11 +27,11 @@ including：
 - excel
 
 
-## Python+HTML
+## [Python+HTML](./Python+HTML)
 
 A tutorial for using html to show python console, very nice!
 
-## Python+Opencv
+## [Python+Opencv](./Python+Opencv)
 
 Some tutorials using OpenCV
 
