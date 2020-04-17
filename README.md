@@ -5,9 +5,12 @@
 
 </div>
 
+## [Standard](./Standard)
 
+The standard of using python! Make python code more pythonic!
 
-**Algorithm** including 
+## Algorithm
+including：
 
 - Geometric
 - Least Squares
@@ -15,38 +18,28 @@
 - sorting algorithm
 
 
+## Data Processing
+including：
 
-**Data Processing** including
+- csv
+- docx
+- txt
+- excel
 
-for csv|docx|txt
 
-
-
-**Python+HTML** 
+## Python+HTML
 
 A tutorial for using html to show python console, very nice!
 
+## Python+Opencv
 
-
-Others I think are not worth mentioning, hope you can find what you want.
-
-
+Some tutorials using OpenCV
 
 
 
 
 
-Transform:
+> Others I think are not worth mentioned, hope you can find what you want.
 
-```python
-# Flip up and down
-x = x[::-1]
 
-# Flip right and left
-x = x[:,::-1]
-
-# Rotate
-x = np.rot90(x, 1)
-
-```
 
