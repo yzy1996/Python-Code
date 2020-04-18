@@ -16,9 +16,16 @@
     </div>
 
     <!-- 按键开始执行python程序 -->
-    <div id="program">
+	
+	<div id="program1">
+		执行test3程序（方式1）
         <button onclick="exec1('python test3.py')">运行 python</button>
-    </div>
+	</div>
+    
+	<div id="program2">
+		执行test3程序（方式2）
+        <input type="button" value="运行 python" onclick="exec1('python test3.py')" />
+	</div>
 
     <!-- 读取python运行结果 -->
     <!-- 链接的 target 属性必须引用 iframe 的 name 属性 -->
