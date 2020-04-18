@@ -32,10 +32,17 @@
         <input type="button" value="输入完毕" onclick="input()" />
     </div>
     <p></p>
+	
     <!-- 点击运行Python按钮，将本地执行test4.py程序 -->
-    <div id="program">
+	<div id="program1">
+		执行test3程序（方式1）
         <button onclick="exec1('python test4.py')">运行 python</button>
-    </div>
+	</div>
+    
+	<div id="program2">
+		执行test3程序（方式2）
+        <input type="button" value="运行 python" onclick="exec1('python test4.py')" />
+	</div>
 
     <!-- 点击结果, 将在框内显示出计算的结果-->
     <div id="result">	
