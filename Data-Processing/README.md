@@ -4,7 +4,7 @@
 
 ![python-version](https://img.shields.io/badge/python-3.7-blue) ![Country](https://img.shields.io/badge/country-China-red)
 
-整理处理txt、csv、docx 的高效方法
+整理处理txt、csv、docx 等的高效方法
 
 </div>
 
