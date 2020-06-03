@@ -13,12 +13,17 @@
   
 <body>
 	<div id="header">
-	<h1>打开python命令行</h1>
+	<h1>运行python</h1>
 	</div>
 
-	<div id="nav">
-		打开python命令行 
-		<input type="button" value="运行 python" onclick="exec1('python test2.py')" />  <!--调用python在这里--> 
+	<div id="nav1">
+		执行test2程序（方式1）
+        <button onclick="exec1('python test2.py')">运行 python</button>
+	</div>
+    
+	<div id="nav2">
+		执行test2程序（方式2）
+        <input type="button" value="运行 python" onclick="exec1('python test2.py')" />
 	</div>
 
 </body> 
