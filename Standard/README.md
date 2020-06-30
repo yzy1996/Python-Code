@@ -57,6 +57,11 @@ print(' Beautiful '.center(40,'-'))
 item = 1
 print(f'the result is {item}') # f-string 用法
 >>> the result is 1
+
+# 保留精度
+item = 1.23456
+print(f'the result is {item:.3f}')
+>>> the result is 1.235
 ```
 
 ```python
