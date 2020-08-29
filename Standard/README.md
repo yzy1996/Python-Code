@@ -2,7 +2,7 @@
 
 让python代码更加优雅，也包含一些奇淫技巧
 
-
+参考：[Google-Python语言规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_language_rules/)
 
 ## 以我为准
 
@@ -116,6 +116,16 @@ x = 3 if (y == 1) else 2
 ```
 
 
+
+### 使用with自动管理资源
+
+不需要`file.close()`了
+
+```python
+with open('filename') as f:
+    for lines in f:
+        print(lines)
+```
 
 
 
@@ -287,6 +297,18 @@ print(a)
 
 ### for..else语法
 
+else 放在循环里的含义是，如果循环全部遍历完成，没有执行break，则执行else
+
+```python
+for list in ['a', 'b', 'c']:
+    if l == 'd':
+        break
+else:
+    print('no d')
+```
+
+
+
 
 
 ### 分享代码
@@ -294,3 +316,4 @@ print(a)
 #### 1 代码片段 snippet
 
 [网站Carbon](https://carbon.now.sh/)
+
