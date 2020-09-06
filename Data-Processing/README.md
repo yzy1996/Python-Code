@@ -20,8 +20,13 @@
 
 获取当前文件夹所有文件名
 
-```python
+使用os.walk()和os.listdir()
 
+```python
+import os
+for root, dirs, files in os.walk("."):
+    for name in files:
+        print(name)
 ```
 
 
