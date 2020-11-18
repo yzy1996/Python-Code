@@ -6,9 +6,8 @@ import numpy as np
 
 # 多元数据
 def sgd():
-    # 训练集，每个样本有三个分量
-    x = np.array([(1, 1), (1, 2), (2, 2), (3, 1), (1, 3), (2, 4), (2, 3), (3,
-                                                                           3)])
+    # 训练集，每个样本有2个分量
+    x = np.array([(1, 1), (1, 2), (2, 2), (3, 1), (1, 3), (2, 4), (2, 3), (3, 3)])
     y = np.array([3, 5, 6, 5, 7, 10, 8, 9])
 
     # 初始化
@@ -21,12 +20,13 @@ def sgd():
 
     # 迭代开始
     for i in range(iterations):
-        j = i % m
-        error = 1 / (2 * m) * np.dot((np.dot(x, theta) - y).T,
-                                     (np.dot(x, theta) - y))
+
+        error = 1 / (2 * m) * np.dot((np.dot(x, theta) - y).T, (np.dot(x, theta) - y))
         # 迭代停止
         if abs(error) <= threshold:
             break
+        
+        j = np.random.randint(0, m)
 
         theta -= alpha * (x[j] * (np.dot(x[j], theta) - y[j]))
 
