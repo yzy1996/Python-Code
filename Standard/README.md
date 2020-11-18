@@ -14,38 +14,6 @@
 
 
 
-### PySnooper调试
-
-```python
-import pysnooper
-
-@pysnooper.snoop()
-def func1():
-    a = 0
-    for i in range(2):
-        a += 1
-
-func1()
->>> 
-Source path:... <ipython-input-22-530479303b4e>
-15:51:55.512317 call         6 def func1():
-15:51:55.512317 line         7     a = 0
-New var:....... a = 0
-15:51:55.512317 line         8     for i in range(2):
-New var:....... i = 0
-15:51:55.512317 line         9         a += 1
-Modified var:.. a = 1
-15:51:55.512317 line         8     for i in range(2):
-Modified var:.. i = 1
-15:51:55.512317 line         9         a += 1
-Modified var:.. a = 2
-15:51:55.512317 line         8     for i in range(2):
-15:51:55.512317 return       8     for i in range(2):
-Return value:.. None
-```
-
-
-
 ### 输出Print
 
 ```python
@@ -127,7 +95,35 @@ with open('filename') as f:
         print(lines)
 ```
 
+### PySnooper调试
 
+```python
+import pysnooper
+
+@pysnooper.snoop()
+def func1():
+    a = 0
+    for i in range(2):
+        a += 1
+
+func1()
+>>> 
+Source path:... <ipython-input-22-530479303b4e>
+15:51:55.512317 call         6 def func1():
+15:51:55.512317 line         7     a = 0
+New var:....... a = 0
+15:51:55.512317 line         8     for i in range(2):
+New var:....... i = 0
+15:51:55.512317 line         9         a += 1
+Modified var:.. a = 1
+15:51:55.512317 line         8     for i in range(2):
+Modified var:.. i = 1
+15:51:55.512317 line         9         a += 1
+Modified var:.. a = 2
+15:51:55.512317 line         8     for i in range(2):
+15:51:55.512317 return       8     for i in range(2):
+Return value:.. None
+```
 
 ---
 
