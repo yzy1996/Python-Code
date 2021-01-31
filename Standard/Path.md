@@ -1,6 +1,18 @@
 # Something about Path
 
+路径问题
+
 Different operation uses slash `/` and backslash(also called a hack, reverse slash) `\`
+
+
+
+`\` 会表示很多转义的含义
+
+
+
+`.` 表示当前路径，通常也可以省略
+
+`..` 表示父目录
 
 
 
@@ -60,6 +72,38 @@ file_to_open = os.path.join(data_folder, "raw_data.txt")
 ```
 
 
+
+使用 `pathlib` 进行路径的拆分
+
+
+
+```python
+from pathlib import Path
+
+path = "/foo/bar/baz/file"
+path_split = Path(path).parts
+path_split
+```
+
+```python
+('/', 'foo', 'bar', 'baz', 'file')
+```
+
+
+
+os.path.split 将文件路径和文件名分开
+
+('/home/ubuntu/python', 'example.py')
+
+.name .parent
+
+
+
+
+
+与 os.path.split 的对照表
+
+https://docs.python.org/zh-cn/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
 
 
