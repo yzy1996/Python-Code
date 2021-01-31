@@ -5,14 +5,8 @@ argparse 模块还会自动生成帮助和使用手册，并在用户给程序�
 '''
 
 import argparse
-
-parser = argparse.ArgumentParser() # 创建对象
-
-# 添加参数
-parser.add_argument("square", help="display a square of a given number",
-                    type=int)
-
-args = parser.parse_args() # 解析添加的参数
-
-print(args.square**2)
+parser = argparse.ArgumentParser()
+parser.add_argument('--echo')
+args, unknown = parser.parse_known_args()
+print(args, unknown)
 
