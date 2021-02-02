@@ -4,22 +4,13 @@
 
 参考：[Google-Python语言规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_language_rules/)
 
-## 以我为准
 
 
 
-#### 主程序
 
-开头都加上：`if __name__ == '__main__':`
+## 1. 高效性
 
-
-
-### 输出Print
-
-```python
-print(' Beautiful '.center(40,'-'))
->>> -------------- Beautiful ---------------
-```
+**f-string 用法**
 
 ```python
 item = 1
@@ -30,6 +21,62 @@ print(f'the result is {item}') # f-string 用法
 item = 1.23456
 print(f'the result is {item:.3f}')
 >>> the result is 1.235
+```
+
+**条件赋值**
+
+```python
+x = 3 if (y == 1) else 2
+```
+
+**使用with自动管理资源**
+
+```python
+# 不需要`file.close()`了
+with open('filename') as f:
+    for lines in f:
+        print(lines)
+```
+
+**置换两个变量的值**
+
+```python
+a = 10
+b = 5
+a, b = b, a
+```
+
+
+
+## 2. 可读性
+
+**类型注解** ![python-version](https://img.shields.io/badge/python-≥3.5-blue)
+
+传统的函数表示：
+
+```python
+def add(x, y):
+	return x + y
+```
+
+加上类型注解后：
+
+```python
+def add(x:int, y:int) -> int:
+	return x + y
+```
+
+> `: 类型` 指定参数类型，`-> 类型` 指定返回值类型
+>
+> 加上注解并没有校验功能，只是提示效果，增加可读性
+
+
+
+## 3. 美观性
+
+```python
+print(' Beautiful '.center(40,'-'))
+>>> -------------- Beautiful ---------------
 ```
 
 ```python
@@ -46,6 +93,22 @@ class color:
    END = '\033[0m'
 print(color.BOLD + 'Hello World !' + color.END) # 加粗print()输出的特定部分
 ```
+
+
+
+
+
+
+
+#### 主程序
+
+开头都加上：`if __name__ == '__main__':`
+
+
+
+
+
+
 
 
 ### 向量矩阵
@@ -67,33 +130,19 @@ np.array([[1],[2],[3]]).shape # 二维数组
 
 
 
-### 置换两个变量的值
-
-```python
-a = 10
-b = 5
-a, b = b, a
-```
 
 
 
-### 条件赋值
-
-```python
-x = 3 if (y == 1) else 2
-```
 
 
 
-### 使用with自动管理资源
 
-不需要`file.close()`了
 
-```python
-with open('filename') as f:
-    for lines in f:
-        print(lines)
-```
+
+
+
+
+
 
 ### PySnooper调试
 
