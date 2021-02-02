@@ -1,8 +1,0 @@
-s_val: name             
-spec_s_val: "name\n"    
-num_val: 31.14          
-bol_val: true           
-nul_val: null          
-nul_val1: ~            
-time_val: 2018-03-01t11:33:22.55-06:00   
-date_val: 2019-01-10
