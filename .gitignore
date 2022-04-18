@@ -3,3 +3,4 @@
 Algorithm/Optimization-Algorithm/test.py
 **/__pycache__
 *.pyc
+.DS_Store
