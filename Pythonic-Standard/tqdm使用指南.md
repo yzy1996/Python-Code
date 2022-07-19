@@ -1,5 +1,7 @@
 # tqdm 使用指南
 
+https://tqdm.github.io/
+
 
 
 先不说原理了，直接上无脑的使用过方法：
@@ -55,3 +57,21 @@ with tqdm(total=100) as pbar:
 
 
 
+range + len 出问题
+
+
+
+
+
+root_dir = Path('./')
+pdf_list = root_dir.glob('scan*.pdf')
+a = list(pdf_list)
+
+for file in tqdm(a):
+    sleep(0.1)
+
+
+
+搭配 enumerate 使用
+
+for i, line in enumerate(tqdm(f)):
