@@ -1,20 +1,6 @@
 # PDF 相关
 
-
-
-```shell
-ocrmypdf --pages 1 --optimize 0 --output-type=none --sidecar output.txt input.pdf
-```
-
-ocrmypdf 
-
-
-
-```
---optimize 0 禁用优化.
-```
-
-
+更多代码样例在 https://github.com/yzy1996/Python-Code/tree/master/Data-Processing/for_pdf
 
 
 
