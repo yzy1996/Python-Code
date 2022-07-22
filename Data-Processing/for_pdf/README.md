@@ -41,6 +41,10 @@ with Pdf.open('scan04.pdf') as pdf:
 
 使用 [ocrmypdf](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html) ，根据[官方教程](https://ocrmypdf.readthedocs.io/en/latest/installation.html)安装。Linux系统（包含MacOS，WSL）会简单一点，Windows复杂一点。
 
+本质上使用的是谷歌的tesseract工具，同时也有一个支持python的 https://github.com/madmaze/pytesseract
+
+不过上述默认都不支持手写字，在学术上基于Transformer的技术也出现了，例如 https://github.com/microsoft/unilm/tree/master/trocr，https://github.com/Breta01/handwriting-ocr
+
 使用方法：直接在命令行执行
 
 ```shell

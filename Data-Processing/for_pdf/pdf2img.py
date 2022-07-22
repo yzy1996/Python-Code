@@ -1,6 +1,6 @@
 from pikepdf import Pdf, PdfImage
 
-with Pdf.open('scan04.pdf') as pdf:
+with Pdf.open('scan.pdf') as pdf:
     page = pdf.pages[0]
     keyimage = list(page.images.keys())
     rawimage = page.images[keyimage[0]]

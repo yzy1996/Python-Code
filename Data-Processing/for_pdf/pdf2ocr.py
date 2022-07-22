@@ -2,7 +2,7 @@ import os
 import subprocess
 import shlex
 
-file = 'test.pdf'
+file = 'scan.pdf'
 command = f"ocrmypdf --deskew --rotate-pages --rotate-pages-threshold 5 --output-type none --sidecar ocr_output.txt {file} -"
 command_args = shlex.split(command)
 
