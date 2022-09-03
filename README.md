@@ -25,6 +25,7 @@ including：
 - docx
 - txt
 - excel
+- pdf
 
 
 ## [Python+HTML](./Python+HTML)
