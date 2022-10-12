@@ -1,5 +1,5 @@
-s_val: name             
-spec_s_val: "name\n"    
+s_val: name 
+spec_s_val: "name"
 num_val: 31.14          
 bol_val: true           
 nul_val: null          

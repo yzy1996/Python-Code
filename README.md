@@ -5,6 +5,8 @@
 
 </div>
 
+http://jobbole.github.io/awesome-python-cn/
+
 ## [Standard](./Standard)
 
 The standard of using python! Make python code more pythonic!

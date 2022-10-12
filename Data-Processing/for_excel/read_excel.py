@@ -1,6 +1,4 @@
-from docx import Document
+import pandas as pd
 
-file = Document("demo.docx")
+data = pd.read_excel('test.xlsx')
 
-for para in file.paragraphs:
-    print(para.text)

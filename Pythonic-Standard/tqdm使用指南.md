@@ -75,3 +75,14 @@ for file in tqdm(a):
 搭配 enumerate 使用
 
 for i, line in enumerate(tqdm(f)):
+
+
+
+
+
+## 属性
+
+```python
+pbar 
+```
+

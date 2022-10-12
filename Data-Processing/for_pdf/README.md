@@ -4,15 +4,68 @@
 
 
 
+[toc]
+
+https://github.com/jsvine/pdfplumber
+
 ## 处理PDF
 
-python下能够处理pdf的库有 PyPDF4(2018)，Mistune(2018)，pikepdf(2020)
+!!! 让我们欢迎 PyPDF2 在2022年重新回归，自从2016年断更以来，等了太久
 
-因此最推荐的是使用[pikepdf](https://pikepdf.readthedocs.io/en/latest/index.html) （pike是梭子鱼的英文），安装也超简单，直接 `pip install pikepdf`
+我尝试过 [pdfx](https://github.com/metachris/pdfx) | [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | [pikepdf](https://github.com/pikepdf/pikepdf) |[PyPDF2](https://github.com/py-pdf/PyPDF2)
 
 
 
-**官网教程已经非常详细了**，在这里我只展示几个我使用过的脚本
+其中比较推荐的是后两者
+
+ `pip install pikepdf`
+
+
+
+**官网教程已经非常详细了**，在这里我只展示几个我常使用的脚本
+
+https://github.com/pymupdf/PyMuPDF
+
+https://pypdf2.readthedocs.io/en/latest/meta/comparisons.html
+
+导出 pdf 页面
+
+
+
+```python
+reader = PdfReader("CR-PI-2208-1886 ok.pdf")
+deg = reader.getPage(-1).get('/MediaBox')
+
+
+print(deg)
+page = reader.pages[-1]
+text = page.get('/MediaBox')
+```
+
+
+
+
+
+
+
+### 读取pdf中的标注
+
+```python
+from PyPDF2 import PdfReader
+
+reader = PdfReader("commented.pdf")
+
+for page in reader.pages:
+    if "/Annots" in page:
+        for annot in page["/Annots"]:
+            obj = annot.get_object()
+            annotation = {"subtype": obj["/Subtype"], "location": obj["/Rect"]}
+            print(annotation)
+```
+
+
+
+
 
 
 
@@ -38,6 +91,8 @@ with Pdf.open('scan04.pdf') as pdf:
 
 
 ## PDF OCR 识别
+
+支持OCR的有 easyocr
 
 使用 [ocrmypdf](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html) ，根据[官方教程](https://ocrmypdf.readthedocs.io/en/latest/installation.html)安装。Linux系统（包含MacOS，WSL）会简单一点，Windows复杂一点。
 
@@ -76,6 +131,12 @@ with open('log', "w") as outfile:
     subprocess.run(command_args, stdout=outfile)
 os.remove('log')
 ```
+
+
+
+
+
+easyocr
 
 
 
@@ -137,3 +198,96 @@ with Pdf.open('name.pdf') as pdf:
 
 
 
+
+
+## 提取pdf文字
+
+extrac 
+
+text extraction
+
+Extracting text from PDF
+
+pdfminer.six
+
+
+
+
+
+| :exclamation: arxiv_latex_cleaner is only compatible with Python >=3 :exclamation: |
+| ------------------------------------------------------------ |
+
+
+
+
+
+
+
+Rebiber
+
+
+
+Parsing
+
+```python
+from pdfminer.high_level import extract_pages
+
+# 获取一个所有page的generator
+extract_pages("test.pdf")
+
+# <LTPage(1) 0.000,0.000,612.000,792.000 rotate=0>
+```
+
+
+
+
+
+def logger_warning(msg: str, src: str) -> None:
+
+ 	logging.getLogger(src).warning(msg)
+
+
+
+
+
+
+
+## pikepdf
+
+
+
+```python
+from pikepdf import Pdf, PdfImage
+
+with Pdf.open('1.pdf') as pdf:
+    page = pdf.pages[0]
+    keyimage = list(page.images.keys())
+    rawimage = page.images[keyimage[0]]
+    pdfimage = PdfImage(rawimage)
+
+    # 保存为图片文件
+    pdfimage.extract_to(fileprefix='test')
+
+    # 保存为PIL.image
+    img = pdfimage.as_pil_image()
+    img.show()
+```
+
+
+
+
+
+## pypdf2
+
+```python
+from PyPDF2 import PdfReader
+
+reader = PdfReader("1.pdf")
+number_of_pages = len(reader.pages)
+
+print(number_of_pages)
+page = reader.pages[13]
+text = page.extract_text()
+
+print(text)
+```
