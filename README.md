@@ -1,13 +1,14 @@
 <h1 align="center">Python-Code</h1>
 <div align="center">
-
-![python-version](https://img.shields.io/badge/python-3.7-blue) ![Country](https://img.shields.io/badge/country-China-red) ![stars](https://img.shields.io/github/stars/yzy1996/Python-Code?style=social)
-
 </div>
+
+一些不错的代码仓：
 
 http://jobbole.github.io/awesome-python-cn/
 
 https://github.com/metafy-social/daily-python-scripts
+
+
 
 ## [Standard](./Standard)
 
@@ -39,8 +40,6 @@ A tutorial for using html to show python console, very nice!
 ## [Python+Opencv](./Python+Opencv)
 
 Some tutorials using OpenCV
-
-
 
 
 

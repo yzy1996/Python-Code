@@ -1,10 +1,6 @@
 <h1 align="center">Data Processing</h1>
 <div align="center">
-
-
-![python-version](https://img.shields.io/badge/python-3.7-blue) ![Country](https://img.shields.io/badge/country-China-red)
-
-整理处理txt、csv、docx 等的高效方法
+整理处理txt、csv、docx、pdf 等的高效方法。这里记录一些最基本的用法，其他详细见对应子文件夹。
 
 </div>
 
@@ -18,16 +14,18 @@
 
 ## 文件操作
 
-获取当前文件夹所有文件名
-
-使用os.walk()和os.listdir()
+对路径进行操作，推荐使用 [Pathlib](https://docs.python.org/3/library/pathlib.html)。
 
 ```python
-import os
-for root, dirs, files in os.walk("."):
-    for name in files:
-        print(name)
+# 获取当前文件夹所有pdf的文件名
+
+from pathlib import Path
+
+root_dir = Path('./')
+pdf_list = sorted(root_dir.glob('*.pdf'))
 ```
+
+
 
 
 
