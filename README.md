@@ -7,6 +7,8 @@
 
 http://jobbole.github.io/awesome-python-cn/
 
+https://github.com/metafy-social/daily-python-scripts
+
 ## [Standard](./Standard)
 
 The standard of using python! Make python code more pythonic!
