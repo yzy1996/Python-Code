@@ -58,11 +58,12 @@ for file in tqdm(list(pdf_list), file=sys.stdout):
                     elif pdfimage.width / pdfimage.height < 1.2:
                         continue
 
-                    img = img.crop((0, 0, img.size[0] / 1.8, img.size[1] / 2))
+                    img = img.crop((400, img.size[1] / 5, img.size[0] / 1.8, img.size[1] / 2))
 
                     text = pytesseract.image_to_string(img, lang='chi_sim')
 
-                    reg_tax = r'913\d*'
+                    # reg_tax = r'913\d*'
+                    reg_tax = r'91[0-9A-Za-z]*'
                     # reg_tax2 = r'[纳税人识别号].*?(\d+)'
                     reg_com = r'波科|国际|医疗'
                     tax_real = '913100006073791417'
@@ -81,8 +82,9 @@ for file in tqdm(list(pdf_list), file=sys.stdout):
                                 break
                         else:
                             flag1 += 1
-        except:
+        except Exception as ex:
             flag2 += 1
+            print(f'{file.stem} 的第[{i+1}]页运行失败, 错误：{ex}')
             pass
 
 print('flag1:', flag1, 'flag2:', flag2)
