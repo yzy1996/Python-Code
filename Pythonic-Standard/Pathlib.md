@@ -107,3 +107,37 @@ https://docs.python.org/zh-cn/3/library/pathlib.html#correspondence-to-tools-in-
 
 
 
+
+
+
+
+
+
+## 前缀 `stem` 和后缀 `suffix`
+
+```shell
+>>> PurePosixPath('my/library.tar').stem
+'library'
+```
+
+```shell
+>>> PurePosixPath('my/library.tar').suffix
+'.tar'
+```
+
+
+
+## 修改前缀 `with_stem` & **修改后缀 `with_suffix`**
+
+```shell
+>>> p = PureWindowsPath('c:/Downloads/draft.txt')
+>>> p.with_stem('final')
+PureWindowsPath('c:/Downloads/final.txt')
+```
+
+```shell
+>>> p = PureWindowsPath('README.md')
+>>> p.with_suffix('.txt')
+PureWindowsPath('README.txt')
+```
+
