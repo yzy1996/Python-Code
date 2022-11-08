@@ -1,6 +1,6 @@
-# Something about Path
+# Pathlib 使用指南
 
-路径问题
+> 背景介绍：不同的操作系统，会使用不同的斜杠来划分路径，
 
 Different operation uses slash `/` and backslash(also called a hack, reverse slash) `\`
 

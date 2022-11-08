@@ -8,7 +8,7 @@ http://jobbole.github.io/awesome-python-cn/
 
 https://github.com/metafy-social/daily-python-scripts
 
-
+https://github.com/TheAlgorithms/Python
 
 ## [Standard](./Standard)
 

@@ -4,8 +4,6 @@
 
 
 
-学习资料：[Matplotlib Cheatsheets](https://github.com/matplotlib/cheatsheets)
-
 
 
 ## Pillow
@@ -69,6 +67,14 @@ pil_img = Image.fromarray(cv2_img
 
 
 ## Matplotlib
+
+学习资料
+
+https://github.com/rougier/matplotlib-tutorial
+
+https://github.com/matplotlib/cheatsheets
+
+https://github.com/matplotlib/cheatsheets
 
 ```python
 
