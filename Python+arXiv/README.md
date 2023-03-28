@@ -1,19 +1,50 @@
-# Usage
+# Paper info into MarkDown
+
+A tool to help you transfer arXiv information into markdown format.
+
+
+
+## Support
+
+- **id2md.py**: input arxiv id and then get the markdown format output.
+- **file2md.py**: input foldername containing papers and then get the markdown format output.
+
+
+
+## Usage
 
 1. run
 
-```shell
-python arxiv.py
+```bash
+python id2md.py
 ```
 
-2. input `arxiv number` and get the result, for example:
+2. input `arxiv id` and get the result, for example:
 
-![image-20220419004604986](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/image-20220419004604986.png)
+![image-20230328221815128](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202303282218968.png)
 
 3. copy the text and (shift) paste to your markdown file.
 
-[Lifting 2D StyleGAN for 3D-Aware Face Generation](https://arxiv.org/abs/2011.13126)  
-*Yichun Shi, Divyansh Aggarwal, Anil K. Jain*  
-**[`CVPR 2021`] (``)** 
+- [Lifting 2D StyleGAN for 3D-Aware Face Generation](https://arxiv.org/abs/2011.13126)  
+  **[`CVPR 2021`]** *Yichun Shi, Divyansh Aggarwal, Anil K. Jain*
 
 4. modify the information as you wish.
+
+---
+
+
+
+1. install `PyPDF2`
+2. run
+
+```bash
+python file2md.py
+```
+
+
+
+## TODO
+
+- [ ] add Internet conf search
+- [ ] a website to use
+
