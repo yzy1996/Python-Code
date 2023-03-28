@@ -50,3 +50,12 @@ python file2md.py
 - [ ] add Internet conf search
 - [ ] a website to use
 
+
+
+## Related
+
+https://github.com/MLNLP-World/SimBiber
+
+https://github.com/yuchenlin/rebiber
+
+https://github.com/j3soon/arxiv-utils
