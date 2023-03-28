@@ -2,9 +2,7 @@
 
 A tool to help you transfer arXiv information into markdown format.
 
-
-
-![image-20230328224342503](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202303282243237.png)
+<div align=center><img width="600" src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202303282243237.png"/></div>
 
 
 
