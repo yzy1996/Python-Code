@@ -23,7 +23,7 @@ python id2md.py
 
 2. input `arxiv id` and get the result, for example:
 
-![image-20230328221815128](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202303282218968.png)
+<div align=center><img width="700" src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202303282218968.png"/></div>
 
 3. copy the text and (shift) paste to your markdown file.
 
