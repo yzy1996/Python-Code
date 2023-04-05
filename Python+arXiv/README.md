@@ -61,6 +61,8 @@ python file2md.py
 
 ## TODO
 
+- [x] build pypi package
+
 - [ ] add Internet conf search
 - [ ] a website to use
 
@@ -73,3 +75,9 @@ https://github.com/MLNLP-World/SimBiber
 https://github.com/yuchenlin/rebiber
 
 https://github.com/j3soon/arxiv-utils
+
+
+
+## 3rd-Party Usages
+
+[arxiv_daily_tools](https://github.com/weihaox/arxiv_daily_tools)
