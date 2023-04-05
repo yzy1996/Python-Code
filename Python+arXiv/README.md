@@ -15,6 +15,20 @@ A tool to help you transfer arXiv information into markdown format.
 
 ## Usage
 
+:laughing: now you can directly use such script anywhere after you install the specific package: 
+
+```bash
+pip install yzy
+
+python -m yzy.id2md
+# or 
+python -m yzy.file2md
+```
+
+
+
+---
+
 1. run
 
 ```bash
