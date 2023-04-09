@@ -20,6 +20,10 @@ A tool to help you transfer arXiv information into markdown format.
 ```bash
 pip install yzy
 
+# dependency
+pip install feedparser, PyPDF2
+
+# then
 python -m yzy.id2md
 # or 
 python -m yzy.file2md
