@@ -2,9 +2,14 @@ import re
 from urllib import request
 from pathlib import Path
 import feedparser
-# from urlextract import URLExtract
+from pathlib import Path
 
-CONF = 'ICML|NIPS|NeurIPS|ICLR|CVPR|ICCV|ECCV|AAAI|IJCAI|3DV|UAI|WACV|ICASSP|ICRA'
+p = Path(__file__)
+
+with open(p.parents[0] / 'conf_list.txt', 'r') as f:
+    data = f.read()
+CONF = data.split('\n')
+CONF = '|'.join(CONF)
 
 
 class Information():
@@ -25,19 +30,19 @@ class Information():
 
         self.title = re.sub(r'[^\w\s-]', '', feed.entries[0].title)
         self.authors = [author.name for author in feed.entries[0].authors]
-        self.abs_url = feed.entries[0].id
+        self.abs_url_version = feed.entries[0].id
+        self.abs_url = self.abs_url_version[:-2]
         self.pdf_url = self.abs_url.replace('abs', 'pdf')
-        self.id_version = self.abs_url[-12:]
+        self.id_version = self.abs_url_version[-12:]
         self.year = feed.entries[0].published[:4]
         self.summary = feed.entries[0].summary
 
         try:
             self.comment = feed.entries[0].arxiv_comment
             publish = re.findall(rf'[\s\S]*(({CONF}).*?\d{{4}})[\s\S]*', self.comment)
-            self.publish = re.sub(r'(\w)(\d{4})', r'\1 \2', publish[0][0]) if publish else f'arXiv {self.year}'
+            self.publish = re.sub(r'\W?(\d{4})', r' \1', publish[0][0]) if publish else f'arXiv {self.year}'
         except:
             self.publish = f'arXiv {self.year}'
-            pass
 
         # self.project_urls = URLExtract().find_urls(self.summary) if self.comment else None
 
@@ -72,10 +77,6 @@ class Information():
 
         self.abs_url = f'https://arxiv.org/abs/{self.id}'
         self.pdf_url = f'https://arxiv.org/pdf/{self.id}'
-
-        # with open(r'conf_list.txt') as f:
-        #     lines = [line.strip() for line in f]
-        # reg = '|'.join(lines)
 
         publish = re.findall(Publish, self.export_arxiv)
 
