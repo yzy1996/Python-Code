@@ -37,10 +37,11 @@ class Information():
         self.year = feed.entries[0].published[:4]
         self.summary = feed.entries[0].summary
 
-        try:
+        try: # try for no attribute 'arxiv_comment'
             self.comment = feed.entries[0].arxiv_comment
-            publish = re.findall(rf'[\s\S]*(({CONF}).*?\d{{4}})[\s\S]*', self.comment)
-            self.publish = re.sub(r'\W?(\d{4})', r' \1', publish[0][0]) if publish else f'arXiv {self.year}'
+            self.conf = re.findall(rf'({CONF})', self.comment)[0]
+            self.conf_year = re.findall(r'(\d{4})', self.comment)[0]
+            self.publish = f'{self.conf} {self.conf_year}' if self.conf else f'arXiv {self.year}'
         except:
             self.publish = f'arXiv {self.year}'
 
