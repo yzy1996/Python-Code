@@ -1,20 +1,16 @@
 <h1 align="center">Python-Code</h1>
 <div align="center">
 </div>
+A collection of the python code that I have used.
 
-一些不错的代码仓：
 
-http://jobbole.github.io/awesome-python-cn/
 
-https://github.com/metafy-social/daily-python-scripts
-
-https://github.com/TheAlgorithms/Python
-
-## [Standard](./Standard)
+## [Standard](./Pythonic-Standard)
 
 The standard of using python! Make python code more pythonic!
 
-## [Algorithm](./Algorithm)
+## [Algorithm](./Python+Algorithm)
+
 including：
 
 - Geometric
@@ -22,8 +18,8 @@ including：
 - Optimization algorithm
 - sorting algorithm
 
-
 ## [Data Processing](./Data-Processing)
+
 including：
 
 - csv
@@ -31,7 +27,6 @@ including：
 - txt
 - excel
 - pdf
-
 
 ## [Python+HTML](./Python+HTML)
 
@@ -46,4 +41,12 @@ Some tutorials using OpenCV
 > Others I think are not worth mentioned, hope you can find what you want.
 
 
+
+## Related
+
+http://jobbole.github.io/awesome-python-cn/
+
+https://github.com/metafy-social/daily-python-scripts
+
+https://github.com/TheAlgorithms/Python
 
