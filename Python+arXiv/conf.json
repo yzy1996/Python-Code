@@ -1,0 +1,33 @@
+{
+  "CVPR": "{IEEE/CVF} Conference on Computer Vision and Pattern Recognition",
+  "ICCV": "{IEEE/CVF} International Conference on Computer Vision",
+  "ECCV": "European Conference on Computer Vision",
+
+  "ICML": "International Conference on Machine Learning",
+  "NeurIPS": "Advances in Neural Information Processing Systems",
+  "ICLR": "International Conference on Learning Representations",
+  
+  "AAAI": "{AAAI} Conference on Artificial Intelligence",
+  "IJCAI": "International Joint Conferences on Artificial Intelligence",
+
+  "gecco": "Genetic and Evolutionary Computation Conference",
+  "cec": "{IEEE} Congress on Evolutionary Computation",
+  "wcci": "{IEEE} World Congress on Computational Intelligence",
+
+  "uai": "Conference on Uncertainty in Artificial Intelligence",
+  "ppsn": "International Conference on Parallel Problem Solving from Nature",
+  "aistats": "International Conference on Artificial Intelligence and Statistics",
+  "emo": "International Conference on Evolutionary Multi-Criterion Optimization",
+  
+  "sac": "ACM Symposium on Applied Computing",
+
+  "ICIP": "{IEEE} International Conference on Image Processing",
+  "ICPR": "International Conference on Pattern Recognition",
+  "3DV": "International Conference on 3D Vision",
+  "ACCV": "Asian Conference on Computer Vision",
+  "WACV": "{IEEE} Winter Conference on Applications of Computer Vision",
+  "ICME": "International conference on multimedia and expo",
+  "BMVC": "British machine vision conference",
+  "ACM MM": "{ACM} International Conference on Multimedia",
+  "SIGGRAPH": "{ACM SIGGRAPH} Annual Conference"
+}
