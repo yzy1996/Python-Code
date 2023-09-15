@@ -1,41 +1,12 @@
 # tqdm 使用指南
 
-https://tqdm.github.io/
+官方网站：https://tqdm.github.io/
 
 
 
-先不说原理了，直接上无脑的使用过方法：
+## 基本功能
 
-```python
-from tqdm import tqdm
-
-epoch = 0
-
-while epoch < 10:
-    epoch += 1
-    with tqdm(train_loader, desc=f'Epoch {epoch}/10') as pbar:
-        for i, (images, _) in enumerate(pbar):
-
-            pbar.set_postfix(loss=i)
-```
-
-
-
-再来说一下我们的目标：
-
-- 在哪一个epoch
-- 每一个epoch里的迭代iteration
-- 
-
-需要设置好一些说明，以及更新策略
-
-如果 tqdm 内部是一个迭代器，
-
-可迭代对象,与迭代器不同的是，我们可以遍历一个 range 对象而不「消耗」它：
-
-
-
-主要是能够显示迭代训练的进度条，先来看基本功能
+`tqdm` 主要是能够显示迭代训练的进度条，先来看例子1
 
 ```python
 from tqdm import tqdm
@@ -53,11 +24,13 @@ for char in ["a", "b", "c", "d"]:
     pass
 ```
 
-所以这里先建立一种感觉，就是你第一遍还是写正常的迭代循环代码，然后改成tqdm进度条形式。
+所以这里先建立一种感觉，就是你第一遍还是写正常的迭代循环代码，然后改成`tqdm`进度条形式。
 
 
 
-接着我们看一些更加复杂的例子
+## 更复杂的例子
+
+接着我们看一些更复杂的例子2
 
 ```python
 # 有一个等价 range 的 trange
@@ -155,6 +128,26 @@ with trange(epoch, 10, initial=epoch, total=10) as pbar:
 
 `trange(start, end, initial, total)`
 
+如果不加total，则显示的总数将是 end-start，但会从initial开始
+
+如果不加initial，则会从0开始，然后总数是 end-start
+
+
+
+更加优雅的写法
+
+```python
+from tqdm import trange
+from time import sleep
+
+epoch = 0
+
+for epoch in (pbar := trange(epoch, 10, initial=epoch, total=10):
+    sleep(1)
+```
+
+好处是不用对epoch再进行任何判断操作，从中断开始，自动结束
+
 
 
 tqdm 后依旧是一个可迭代对象，因此可以继续放心搭配 enumerate 使用
@@ -163,9 +156,47 @@ tqdm 后依旧是一个可迭代对象，因此可以继续放心搭配 enumerat
 
 
 
- 
+ ## 双循环
+
+```python
+from tqdm.auto import trange
+from time import sleep
+
+for i in trange(4, desc='1st loop'):
+    for j in trange(5, desc='2nd loop'):
+        for k in trange(50, desc='3rd loop', leave=False):
+            sleep(0.01)
+```
 
  
+
+最后我们再回过头看一些基本概念;
+
+tqdm 内部是一个可迭代对象。与迭代器不同的是，我们可以遍历一个 range 对象而不「消耗」它。
+
+
+
+## 自用模板
+
+我在训练网络的时候，首先会有一个 epoch，然后对于每一个 epoch，都会把数据都迭代一遍，因此内循环用iteration表示，总共的迭代次数就是 epoch*iteration
+
+```python
+from tqdm import tqdm
+
+epoch = 0
+
+while epoch < 10:
+    epoch += 1
+    with tqdm(train_loader, desc=f'Epoch {epoch}/10') as pbar:
+        for i, (images, _) in enumerate(pbar):
+
+            pbar.set_postfix(loss=i)
+```
+
+再来说一下我们的目标：
+
+- 在哪一个epoch
+- 每一个epoch里的迭代iteration
 
 
 
