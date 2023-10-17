@@ -5,16 +5,15 @@ from email.header import Header
 
 
 smtp_server = 'smtp.163.com'
-smtp_username = 'immuseai@163.com'
-smtp_password = 'AYQMNUPCBVEPVKTA'
+smtp_username = '*********'
+smtp_password = '*********'
 
-receivers = ['im.crazyang@gmail.com']
+receivers = '*********'
 
 # Set up the email message
 msg = MIMEMultipart()
 msg['From'] = smtp_username
-msg['To'] = 'im.crazyang@gmail.com'
-# ';'.join(receivers)
+msg['To'] = '*********'
 msg["Subject"] = Header('邮件发送测试', 'utf-8')
 
 

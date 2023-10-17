@@ -14,15 +14,18 @@ pip install -U yzy
 
 Or you can develop from the source code.
 
-## Usage (v1.0)
+## Usage (v1.1)
 
 - **id2md.py**: input arxiv id and then get the markdown format output.
 - **file2md.py**: input foldername containing papers and then get the markdown format output.
+- **checkv.py**: auto-update the pdf version.
 
 ```bash
 python -m yzy.id2md
 
 python -m yzy.file2md
+
+python -m yzy.checkv
 ```
 
 Then you can copy the text and (shift) paste to your markdown file and modify the information as you wish.
@@ -34,6 +37,7 @@ You can add more conferences in [this](./conf_list.txt).
 ## TODO
 
 - [x] build pypi package
+- [x] check and update the local pdf version
 - [ ] add Internet conf search
 - [ ] build a website to use
 

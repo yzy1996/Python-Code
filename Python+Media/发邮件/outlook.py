@@ -9,10 +9,10 @@ from email.header import Header
 # Set up the SMTP server
 smtp_server = 'smtp.office365.com'
 smtp_port = 587
-smtp_username = 'withyzy@outlook.com'
-smtp_password = 'yangzhiyuan123'
+smtp_username = '*********'
+smtp_password = '*********'
 
-receivers = 'im.crazyang@gmail.com'
+receivers = '*********'
 
 # Set up the email message
 msg = MIMEMultipart()

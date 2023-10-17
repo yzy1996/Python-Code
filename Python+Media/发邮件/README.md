@@ -5,19 +5,10 @@ smtplib 是 SMTP protocol client
 
 
 
-
 ## 提前准备
 
 在邮箱中开启SMTP服务
 
 
-
 smtplib.SMTP(smtp_server) as server:
 server.starttls()
-
-
-
-针对163邮箱的
-
-
-

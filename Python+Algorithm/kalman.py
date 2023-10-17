@@ -1,9 +1,4 @@
 import sys
-PY3 = sys.version_info[0] == 3
-
-if PY3:
-    long = int
-
 import numpy as np
 import cv2 as cv
 
@@ -15,7 +10,7 @@ def main():
     img_width = 500
     kalman = cv.KalmanFilter(2, 1, 0)
 
-    code = long(-1)
+    code = -1
 
     cv.namedWindow("Kalman")
 
