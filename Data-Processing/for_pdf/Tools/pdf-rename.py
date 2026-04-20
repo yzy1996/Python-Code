@@ -9,6 +9,10 @@ from pikepdf import Pdf, PdfImage
 from pyzbar.pyzbar import decode
 
 
+def log_failure(method_name, file, error):
+    print(f"{method_name} failed for {file}: {error}")
+
+
 def zbar_read(filename, page_num=0):
 
     with Pdf.open(filename) as pdf:
@@ -86,7 +90,8 @@ def try1():
             
             rename(file, scan_CR)
 
-        except:
+        except Exception as ex:
+            log_failure("try1", file, ex)
             fail_count += 1
             continue
 
@@ -111,7 +116,8 @@ def try2():
             
             rename(file, scan_CR)
 
-        except:
+        except Exception as ex:
+            log_failure("try2", file, ex)
             fail_count += 1
             continue
 
@@ -136,7 +142,8 @@ def try3():
             
             rename(file, scan_CR)
 
-        except:
+        except Exception as ex:
+            log_failure("try3", file, ex)
             fail_count += 1
             continue
     
@@ -162,7 +169,8 @@ def try4():
             
             rename(file, scan_CR)
 
-        except:
+        except Exception as ex:
+            log_failure("try4", file, ex)
             fail_count += 1
             continue
     

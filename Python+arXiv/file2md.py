@@ -16,15 +16,17 @@ class Information():
 
         query_id = read_pdf(query_title)
 
-        if re.findall(r'\d{4}.\d{5}', query_id):
+        if query_id and re.fullmatch(r'\d{4}\.\d{5}', query_id):
             query_url = f'http://export.arxiv.org/api/query?id_list={query_id}'
-
         else:
-            query_title1 = str(query_title)[:-4].replace(' ', '+').replace('-', '+')
-            self.query_url = f'https://export.arxiv.org/api/query?search_query=ti:{query_title1}&max_results=1'
+            query_title1 = Path(query_title).stem.replace(' ', '+').replace('-', '+')
+            query_url = f'https://export.arxiv.org/api/query?search_query=ti:{query_title1}&max_results=1'
 
-        export_arxiv = request.urlopen(query_url).read().decode('utf-8')
+        self.query_url = query_url
+        export_arxiv = request.urlopen(self.query_url).read().decode('utf-8')
         feed = feedparser.parse(export_arxiv)
+        if not feed.entries:
+            raise ValueError(f'No arXiv entry found for {query_title}')
 
         self.title = re.sub(r'[^\w\s-]', '', feed.entries[0].title)
         self.authors = [author.name for author in feed.entries[0].authors]
@@ -40,7 +42,7 @@ class Information():
             self.conf = re.findall(rf'({CONF})', self.comment)[0]
             self.conf_year = re.findall(r'(\d{4})', self.comment)[0]
             self.publish = f'{self.conf} {self.conf_year}' if self.conf else f'arXiv {self.year}'
-        except:
+        except (AttributeError, IndexError):
             self.publish = f'arXiv {self.year}'
 
     def write_notes(self):
@@ -64,12 +66,12 @@ def read_pdf(filename, update=False):
         pdf = PdfReader(f)
 
         first_page = pdf.pages[0]
-        text_split = first_page.extract_text().split()
-        str_id = text_split[-5]
-        id_version_local = re.findall(r'\d{4}\.\d{5}v\d{1}', str_id)[0]
-        id = id_version_local[:-2]
+        first_page_text = first_page.extract_text() or ''
+        id_match = re.search(r'(\d{4}\.\d{5})(?:v\d+)?', first_page_text)
+        if id_match:
+            return id_match.group(1)
 
-    return id
+    return None
 
 
 if __name__ == "__main__":
@@ -83,5 +85,4 @@ if __name__ == "__main__":
             information.write_notes()
 
         except Exception as ex:
-            print('Error: ', ex)
-            pass
+            print(f'Error in file2md for {file}: {ex}')

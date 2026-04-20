@@ -35,7 +35,7 @@ class Information():
             self.conf = re.findall(rf'({CONF})', self.comment)[0]
             self.conf_year = re.findall(r'(\d{4})', self.comment)[0]
             self.publish = f'{self.conf} {self.conf_year}' if self.conf else f'arXiv {self.year}'
-        except:
+        except (AttributeError, IndexError):
             self.publish = f'arXiv {self.year}'
 
     def write_notes(self):

@@ -1,5 +1,20 @@
-import os
+import subprocess
+from pathlib import Path
 
 
-command = 'ffmpeg ' + '-y -f s16le -ar 16000 -i ' + 'demo.pcm' + ' aa' + '.wav'
-os.system(command)
+BASE_DIR = Path(__file__).resolve().parent
+
+subprocess.run(
+    [
+        "ffmpeg",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "16000",
+        "-i",
+        str(BASE_DIR / "demo.pcm"),
+        str(BASE_DIR / "aa.wav"),
+    ],
+    check=True,
+)

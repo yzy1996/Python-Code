@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 
 # http://httpbin.org/get
@@ -16,13 +17,13 @@ options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) Apple
 options.add_argument("proxy-server=http://117.191.11.105:8080")
 
 # 创建浏览器驱动
-driver = webdriver.Chrome(chrome_options=options)
+driver = webdriver.Chrome(options=options)
 driver.get("http://httpbin.org/get")
 
-# input = driver.find_element_by_css_selector('#kw')
+# input = driver.find_element(By.CSS_SELECTOR, '#kw')
 # input.send_keys("如吉生物")
 
-# button = driver.find_element_by_css_selector('#su')
+# button = driver.find_element(By.CSS_SELECTOR, '#su')
 # button.click()
 
 print(driver.page_source)

@@ -2,7 +2,6 @@ import re
 from urllib import request
 from pathlib import Path
 import feedparser
-from pathlib import Path
 
 p = Path(__file__)
 
@@ -42,7 +41,7 @@ class Information():
             self.conf = re.findall(rf'({CONF})', self.comment)[0]
             self.conf_year = re.findall(r'(\d{4})', self.comment)[0]
             self.publish = f'{self.conf} {self.conf_year}' if self.conf else f'arXiv {self.year}'
-        except:
+        except (AttributeError, IndexError):
             self.publish = f'arXiv {self.year}'
 
         # self.project_urls = URLExtract().find_urls(self.summary) if self.comment else None
@@ -152,8 +151,7 @@ def check_version():
             read_pdf(file, update=True)
 
         except Exception as ex:
-            print('Error: ', ex)
-            pass
+            print(f'Error in check_version for {file}: {ex}')
 
 
 def file2md():
@@ -166,8 +164,7 @@ def file2md():
             information.write_notes()
 
         except Exception as ex:
-            print('Error: ', ex)
-            pass
+            print(f'Error in file2md for {file}: {ex}')
 
 
 def id2md():
@@ -182,8 +179,7 @@ def id2md():
                 information.write_notes()
 
             except Exception as ex:
-                print('Error: ', ex)
-                pass
+                print(f'Error in id2md for {id}: {ex}')
 
 
 if __name__ == '__main__':

@@ -36,11 +36,11 @@ class Information():
         try:
             response = request.urlopen(query_url)
         except HTTPError as e:
-            print('Error code: ', e.code)
+            raise RuntimeError(f'HTTPError querying {query_url}: {e.code}') from e
         except URLError as e:
-            print('Reason: ', e.reason)
-        else:
-            export_arxiv = response.read().decode('utf-8')
+            raise RuntimeError(f'URLError querying {query_url}: {e.reason}') from e
+
+        export_arxiv = response.read().decode('utf-8')
 
         feed = feedparser.parse(export_arxiv)
 
@@ -76,7 +76,6 @@ if __name__ == "__main__":
             information.check_update()
 
         except Exception as ex:
-            print('Error: ', ex)
-            pass
+            print(f'Error in check_update for {file}: {ex}')
 
 

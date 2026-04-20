@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 import random
 
@@ -13,6 +14,7 @@ with open('user_agent.txt') as f:
 # http://httpbin.org/get
 count = 0
 for i in range(len(ip)):
+    driver = None
     try:
         # 添加配置
         options = webdriver.ChromeOptions()
@@ -20,13 +22,13 @@ for i in range(len(ip)):
         options.add_argument('proxy-server=http://' + ip[i])
 
         # 创建浏览器驱动
-        driver = webdriver.Chrome(chrome_options=options)
+        driver = webdriver.Chrome(options=options)
         driver.get("http://www.baidu.com")
 
-        input = driver.find_element_by_css_selector('#kw')
+        input = driver.find_element(By.CSS_SELECTOR, '#kw')
         input.send_keys("如吉生物")
 
-        button = driver.find_element_by_css_selector('#su')
+        button = driver.find_element(By.CSS_SELECTOR, '#su')
         button.click()
 
         # print(driver.page_source)
@@ -36,7 +38,8 @@ for i in range(len(ip)):
         driver.quit()
 
     except Exception:  # 其他异常
-        driver.quit()
+        if driver is not None:
+            driver.quit()
         print('Retry')
 
 

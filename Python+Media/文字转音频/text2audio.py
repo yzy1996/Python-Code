@@ -6,21 +6,19 @@
 #  合成发音人自动添加获取测试权限使用方法：登陆开放平台https://www.xfyun.cn/后--我的应用（必须为webapi类型应用）--添加在线语音合成（已添加的不用添加）--发音人管理---添加发音人--测试代码里需修改发音人参数
 #  错误码链接：https://www.xfyun.cn/document/error-code （code返回错误码时必看）
 #  @author iflytek
-import requests
-import time
-import hashlib
 import base64
+import hashlib
+import time
+
+import requests
+
+from xfyun_config import BASE_DIR, ensure_audio_dir, load_webapi_credentials, safe_output_name
 #  合成webapi接口地址
-URL = "http://api.xfyun.cn/v1/service/v1/tts"
+URL = "https://api.xfyun.cn/v1/service/v1/tts"
 #  音频编码(raw合成的音频格式pcm、wav,lame合成的音频格式MP3)
 AUE = "raw"
-#  应用APPID（必须为webapi类型应用，并开通语音合成服务，参考帖子如何创建一个webapi应用：http://bbs.xfyun.cn/forum.php?mod=viewthread&tid=36481
-APPID = "5d3abe07"
-#  接口密钥（webapi类型应用开通合成服务后，控制台--我的应用---语音合成---相应服务的apikey）
-API_KEY = "e4a5650869b3a64e1fdb8aaaf47bc056"
-
 # 组装http请求头
-def getHeader():
+def getHeader(app_id, api_key):
     curTime = str(int(time.time()))
     # ttp=ssml
     param = "{\"aue\":\"" + AUE + "\",\"auf\":\"audio/L16;rate=16000\",\"voice_name\":\"aisjinger\",\"speed\":\"30\",\"engine_type\":\"intp65\"}"
@@ -30,7 +28,7 @@ def getHeader():
     # print("x_param:{}".format(paramBase64))
 
     m2 = hashlib.md5()
-    m2.update((API_KEY + curTime + paramBase64).encode('utf-8'))
+    m2.update((api_key + curTime + paramBase64).encode('utf-8'))
 
     checkSum = m2.hexdigest()
     # print('checkSum:{}'.format(checkSum))
@@ -38,7 +36,7 @@ def getHeader():
     header = {
         'X-CurTime': curTime,
         'X-Param': paramBase64,
-        'X-Appid': APPID,
+        'X-Appid': app_id,
         'X-CheckSum': checkSum,
         'X-Real-Ip': '127.0.0.1',
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -55,21 +53,32 @@ def getBody(text):
 def writeFile(file, content):
     with open(file, 'wb') as f:
         f.write(content)
-    f.close()
+
+def main():
+    credentials = load_webapi_credentials()
+    audio_dir = ensure_audio_dir()
+
+    with open(BASE_DIR / 'text.txt', 'rt', encoding='utf-8') as f:
+        lines = (line.strip() for line in f)
+        for line in lines:
+            if not line:
+                continue
+
+            r = requests.post(
+                URL,
+                headers=getHeader(credentials["APPID"], credentials["API_KEY"]),
+                data=getBody(line),
+                timeout=30,
+            )
+            r.raise_for_status()
+
+            contentType = r.headers.get('Content-Type', '')
+            if contentType == "audio/mpeg":
+                file_name = f"{safe_output_name(line)}.wav"
+                writeFile(audio_dir / file_name, r.content)
+            else:
+                print(r.text)
 
 
-with open(r'text.txt', 'rt') as f:
-    lines = (line.strip() for line in f)
-    for line in lines:
-
-        r = requests.post(URL, headers=getHeader(), data=getBody(line))
-
-        contentType = r.headers['Content-Type']
-        if contentType == "audio/mpeg":
-            sid = r.headers['sid']
-            if AUE == "raw":
-        #   合成音频格式为pcm、wav并保存在audio目录下
-                writeFile("C:/Users/Jerry/Desktop/audio/" + line + ".wav", r.content)
-
-
-ffmpeg -y -f s16le -ar 11025 -i demo.pcm demo.wav
+if __name__ == "__main__":
+    main()

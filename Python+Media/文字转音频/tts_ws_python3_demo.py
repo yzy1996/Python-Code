@@ -14,25 +14,28 @@
 #   合成小语种需要传输小语种文本、使用小语种发音人vcn、ent=mtts、tte=unicode以及修改文本编码方式
 #  错误码链接：https://www.xfyun.cn/document/error-code （code返回错误码时必看）
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-import websocket
-import datetime
-import hashlib
 import base64
+import hashlib
 import hmac
 import json
-from urllib.parse import urlencode
-import time
-import ssl
-from wsgiref.handlers import format_date_time
 from datetime import datetime
+from pathlib import Path
 from time import mktime
+from urllib.parse import urlencode
+from wsgiref.handlers import format_date_time
+
 import _thread as thread
-import os
+import websocket
+
+from xfyun_config import load_websocket_credentials
 
 
 STATUS_FIRST_FRAME = 0  # 第一帧的标识
 STATUS_CONTINUE_FRAME = 1  # 中间帧标识
 STATUS_LAST_FRAME = 2  # 最后一帧的标识
+
+BASE_DIR = Path(__file__).resolve().parent
+PCM_FILE = BASE_DIR / "demo.pcm"
 
 
 class Ws_Param(object):
@@ -101,7 +104,7 @@ def on_message(ws, message):
             print("sid:%s call error:%s code is:%s" % (sid, errMsg, code))
         else:
 
-            with open('./demo.pcm', 'ab') as f:
+            with open(PCM_FILE, 'ab') as f:
                 f.write(audio)
 
     except Exception as e:
@@ -122,6 +125,8 @@ def on_close(ws):
 # 收到websocket连接建立的处理
 def on_open(ws):
     def run(*args):
+        if PCM_FILE.exists():
+            PCM_FILE.unlink()
         d = {"common": wsParam.CommonArgs,
              "business": wsParam.BusinessArgs,
              "data": wsParam.Data,
@@ -129,19 +134,15 @@ def on_open(ws):
         d = json.dumps(d)
         print("------>开始发送文本数据")
         ws.send(d)
-        if os.path.exists('./demo.pcm'):
-            os.remove('./demo.pcm')
 
     thread.start_new_thread(run, ())
 
 
 if __name__ == "__main__":
-    # 测试时候在此处正确填写相关信息即可运行
-    wsParam = Ws_Param(APPID='5d3abe07', APIKey='86e445278971609c9d8776d2893da927',
-                       APISecret='faba8b4623a4cfda1a9f345502eda54f',
-                       Text="这是一个语音合成示例")
+    credentials = load_websocket_credentials()
+    wsParam = Ws_Param(Text="这是一个语音合成示例", **credentials)
     websocket.enableTrace(False)
     wsUrl = wsParam.create_url()
     ws = websocket.WebSocketApp(wsUrl, on_message=on_message, on_error=on_error, on_close=on_close)
     ws.on_open = on_open
-    ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
+    ws.run_forever()

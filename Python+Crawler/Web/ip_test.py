@@ -1,10 +1,11 @@
-import telnetlib
+import socket
  
 print('------------------------connect---------------------------')
-# 连接Telnet服务器
+# 探测 TCP 连接可用性
 try:
-    tn = telnetlib.Telnet('111.20.226.13',port='9808',timeout=10)
-except:
+    with socket.create_connection(('111.20.226.13', 9808), timeout=10):
+        pass
+except OSError:
     print('该代理IP  无效')
 else:
     print('该代理IP  有效')
